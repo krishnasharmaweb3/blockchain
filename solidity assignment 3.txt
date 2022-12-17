@@ -1,0 +1,39 @@
+The Solidity code you provided defines a contract called structure that contains a struct called Book and a struct variable called book. The struct Book has four fields: title, author, bookID, and price.
+
+The contract has two functions: setBook() and getBookId(). The setBook() function assigns a value to the book struct variable, and the getBookId() function returns the bookID field of the book struct variable.
+
+In terms of gas costs, the setBook() function will have a higher gas cost than the getBookId() function because it modifies the book struct variable, which requires writing to storage. The getBookId() function only reads from storage, which is cheaper.
+
+Here is a breakdown of the gas costs for the different variables and structs in the contract:
+
+Book struct: The gas cost of defining a struct is minimal and does not depend on the number of fields in the struct.
+
+book struct variable: The gas cost of defining a struct variable is minimal and does not depend on the size of the struct. However, reading from or writing to the struct variable in storage will incur a gas cost depending on the size of the struct and the number of fields being accessed.
+
+title, author, bookID, and price fields: These fields are part of the Book struct, so they do not incur a separate gas cost. However, accessing these fields (e.g., reading or writing their values) will incur a gas cost depending on their size and the number of fields being accessed.
+
+setBook() function: This function writes to the book struct variable in storage, which incurs a gas cost depending on the size of the struct and the number of fields being written. The function also has a small gas cost for executing the function itself.
+
+getBookId() function: This function reads from the book struct variable in storage, which incurs a gas cost depending on the size of the struct and the number of fields being read. The function also has a small gas cost for executing the function itself.
+
+If you want to calculate the gas cost of separate functions to get the title, author, bookId, and price fields, you can define separate functions for each field and use them to read the corresponding field from the book struct variable. The gas cost of these functions will be similar to the gas cost of the getBookId() function, as they will only be reading from storage.
+
+Here is an example of how you can define separate functions to get the title, author, bookId, and price fields:
+
+function getTitle() public view returns(string memory) {
+  return book.title;
+}
+
+function getAuthor() public view returns(string memory) {
+  return book.author;
+}
+
+function getBookId() public view returns(uint) {
+  return book.bookID;
+}
+
+function getPrice() public view returns(uint) {
+  return book.price;
+}
+The gas cost of these functions will be similar to the gas cost of the getBookId() function, as they will only be reading from storage.
+
