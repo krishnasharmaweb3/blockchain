@@ -1,0 +1,29 @@
+function getGrade(marks) {
+  switch (true) {
+    case marks >= 90 && marks <= 100:
+      return "S grade";
+    case marks >= 80 && marks < 90:
+      return "A grade";
+    case marks >= 70 && marks < 80:
+      return "B grade";
+    case marks >= 60 && marks < 70:
+      return "C grade";
+    case marks >= 50 && marks < 60:
+      return "D grade";
+    case marks >= 40 && marks < 50:
+      return "E grade";
+    case marks >= 0 && marks < 40:
+      return "Student has failed";
+    default:
+      return "Invalid marks";
+  }
+}
+
+console.log(getGrade(95)); // "S grade"
+console.log(getGrade(85)); // "A grade"
+console.log(getGrade(75)); // "B grade"
+console.log(getGrade(65)); // "C grade"
+console.log(getGrade(55)); // "D grade"
+console.log(getGrade(45)); // "E grade"
+console.log(getGrade(35)); // "Student has failed"
+console.log(getGrade(-5)); // "Invalid marks"
